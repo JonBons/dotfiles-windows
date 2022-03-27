@@ -49,7 +49,6 @@ choco install sourcecodepro       --limit-output
 
 # browsers
 choco install brave               --limit-output; <# pin; evergreen #> choco pin add --name Brave        --limit-output
-choco install bitwarden-chrome    --limit-output
 
 # apps
 choco install 7zip                --limit-output
