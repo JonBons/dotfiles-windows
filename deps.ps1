@@ -90,10 +90,6 @@ Write-Host "Installing Windows Features..." -ForegroundColor "Yellow"
 Write-Host "Installing Node Packages..." -ForegroundColor "Yellow"
 if (which npm) {
     npm update npm
-    npm install -g gulp
-    npm install -g mocha
-    npm install -g node-inspector
-    npm install -g yo
 }
 
 ### Janus for vim
