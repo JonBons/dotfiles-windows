@@ -53,7 +53,7 @@ choco install brave               --limit-output; <# pin; evergreen #> choco pin
 # dev tools and frameworks
 choco install vscode              --limit-output; <# pin; evergreen #> choco pin add --name VS Code      --limit-output
 choco install vim                 --limit-output
-choco install             --limit-output
+choco install winmerge            --limit-output
 
 Refresh-Environment
 
