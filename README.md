@@ -1,8 +1,6 @@
-﻿# Jay Harris's dotfiles for Windows
+﻿# Matthew Graham's dotfiles for Windows (forked from Jay Harris's dotfiles)
 
 A collection of PowerShell files for Windows, including common application installation through `Chocolatey` and `npm`, and developer-minded Windows configuration defaults. 
-
-Are you a Mac user? Check out my [dotfiles](https://github.com/jayharris/dotfiles) repository.
 
 ## Installation
 
@@ -12,7 +10,7 @@ You can clone the repository wherever you want. (I like to keep it in `~\Project
 
 From PowerShell:
 ```posh
-git clone https://github.com/jayharris/dotfiles-windows.git; cd dotfiles-windows; . .\bootstrap.ps1
+git clone https://github.com/jonbons/dotfiles-windows.git; cd dotfiles-windows; . .\bootstrap.ps1
 ```
 
 To update your settings, `cd` into your local `dotfiles-windows` repository within PowerShell and then:
@@ -30,7 +28,7 @@ Note: You must have your execution policy set to unrestricted (or at least in by
 To install these dotfiles from PowerShell without Git:
 
 ```bash
-iex ((new-object net.webclient).DownloadString('https://raw.github.com/jayharris/dotfiles-windows/master/setup/install.ps1'))
+iex ((new-object net.webclient).DownloadString('https://raw.github.com/jonbons/dotfiles-windows/master/setup/install.ps1'))
 ```
 
 To update later on, just run that command again.
@@ -44,14 +42,14 @@ My `.\extra.ps1` looks something like this:
 ```posh
 # Hg credentials
 # Not in the repository, to prevent people from accidentally committing under my name
-Set-Environment "EMAIL" "Jay Harris <jay@aranasoft.com>"
+Set-Environment "EMAIL" "Matthew Graham <me@mattgraham.me>"
 
 # Git credentials
 # Not in the repository, to prevent people from accidentally committing under my name
-Set-Environment "GIT_AUTHOR_NAME" "Jay Harris","User"
+Set-Environment "GIT_AUTHOR_NAME" "Matthew Graham","User"
 Set-Environment "GIT_COMMITTER_NAME" $env:GIT_AUTHOR_NAME
 git config --global user.name $env:GIT_AUTHOR_NAME
-Set-Environment "GIT_AUTHOR_EMAIL" "jay@aranasoft.com"
+Set-Environment "GIT_AUTHOR_EMAIL" "me@mattgraham.me"
 Set-Environment "GIT_COMMITTER_EMAIL" $env:GIT_AUTHOR_EMAIL
 git config --global user.email $env:GIT_AUTHOR_EMAIL
 ```
@@ -78,37 +76,6 @@ When setting up a new Windows box, you may want to install some common packages,
 
 > **Visual Studio Extensions**  
 > Extensions will be installed into your most current version of Visual Studio. You can also install additional plugins at any time via `Install-VSExtension $url`. The Url can be found on the gallery; it's the extension's `Download` link url.
-
-
-
-## Forking your own version
-
-This repository is built around how I use Windows, which is predominantly in a VM hosted on OS X. As such, things like VNC, FileZilla, or Skype are not installed, as they are available to me on the OS X side, installed by my [OS X dotfiles](https://github.com/jayharris/dotfiles). If you are using Windows as your primary OS, you may want a different configuration that reflects that, and I recommend you [fork this repository](https://github.com/jayharris/dotfiles-windows/fork).
-
-If you do fork for your own custom configuration, you will need to touch a few files to reference your own repository, instead of mine.
-
-Within `/setup/install.ps1`, modify the Repository variables.
-```posh
-$account = "jayharris"
-$repo    = "dotfiles-windows"
-$branch  = "master"
-```
-
-Within the Windows Defaults file, `/windows.ps1`, modify the Machine
-name on the first line.
-```posh
-(Get-WmiObject Win32_ComputerSystem).Rename("MyMachineName") | Out-Null
-```
-
-Finally, be sure to reference your own repository in the git-free installation command.
-```bash
-iex ((new-object net.webclient).DownloadString('https://raw.github.com/$account/$repo/$branch/setup/install.ps1'))
-```
-
-## Feedback
-
-Suggestions/improvements are
-[welcome and encouraged](https://github.com/jayharris/dotfiles-windows/issues)!
 
 ## Author
 
