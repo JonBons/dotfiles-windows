@@ -43,22 +43,17 @@ choco install webpi               --limit-output
 choco install git.install         --limit-output -params '"/GitAndUnixToolsOnPath /NoShellIntegration"'
 choco install nvm.portable        --limit-output
 choco install python              --limit-output
-choco install ruby                --limit-output
 
 #fonts
 choco install sourcecodepro       --limit-output
 
 # browsers
-choco install GoogleChrome        --limit-output; <# pin; evergreen #> choco pin add --name GoogleChrome        --limit-output
-choco install GoogleChrome.Canary --limit-output; <# pin; evergreen #> choco pin add --name GoogleChrome.Canary --limit-output
-choco install Firefox             --limit-output; <# pin; evergreen #> choco pin add --name Firefox             --limit-output
-choco install Opera               --limit-output; <# pin; evergreen #> choco pin add --name Opera               --limit-output
+choco install brave               --limit-output; <# pin; evergreen #> choco pin add --name Brave        --limit-output
 
 # dev tools and frameworks
-choco install atom                --limit-output; <# pin; evergreen #> choco pin add --name Atom                --limit-output
-choco install Fiddler             --limit-output
+choco install vscode              --limit-output; <# pin; evergreen #> choco pin add --name VS Code      --limit-output
 choco install vim                 --limit-output
-choco install winmerge            --limit-output
+choco install             --limit-output
 
 Refresh-Environment
 
@@ -68,41 +63,8 @@ nvm install $nodeLtsVersion
 nvm use $nodeLtsVersion
 Remove-Variable nodeLtsVersion
 
-gem pristine --all --env-shebang
-
 ### Windows Features
 Write-Host "Installing Windows Features..." -ForegroundColor "Yellow"
-# IIS Base Configuration
-Enable-WindowsOptionalFeature -Online -All -FeatureName `
-    "IIS-BasicAuthentication", `
-    "IIS-DefaultDocument", `
-    "IIS-DirectoryBrowsing", `
-    "IIS-HttpCompressionDynamic", `
-    "IIS-HttpCompressionStatic", `
-    "IIS-HttpErrors", `
-    "IIS-HttpLogging", `
-    "IIS-ISAPIExtensions", `
-    "IIS-ISAPIFilter", `
-    "IIS-ManagementConsole", `
-    "IIS-RequestFiltering", `
-    "IIS-StaticContent", `
-    "IIS-WebSockets", `
-    "IIS-WindowsAuthentication" `
-    -NoRestart | Out-Null
-
-# ASP.NET Base Configuration
-Enable-WindowsOptionalFeature -Online -All -FeatureName `
-    "NetFx3", `
-    "NetFx4-AdvSrvs", `
-    "NetFx4Extended-ASPNET45", `
-    "IIS-NetFxExtensibility", `
-    "IIS-NetFxExtensibility45", `
-    "IIS-ASPNET", `
-    "IIS-ASPNET45" `
-    -NoRestart | Out-Null
-
-# Web Platform Installer for remaining Windows features
-webpicmd /Install /AcceptEula /Products:"UrlRewrite2"
 
 ### Node Packages
 Write-Host "Installing Node Packages..." -ForegroundColor "Yellow"
