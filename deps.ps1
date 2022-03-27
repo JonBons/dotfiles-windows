@@ -49,8 +49,29 @@ choco install sourcecodepro       --limit-output
 
 # browsers
 choco install brave               --limit-output; <# pin; evergreen #> choco pin add --name Brave        --limit-output
+choco install bitwarden-chrome    --limit-output
+
+# apps
+choco install 7zip                --limit-output
+choco install spotify             --limit-output
+choco install winscp              --limit-output
+choco install procexp             --limit-output
+choco install irfanview           --limit-output
+choco install everything          --limit-output
+choco install ffmpeg              --limit-output
+choco install discord.install     --limit-output
+choco install obs-studio.install  --limit-output
+choco install wiztree             --limit-output
+choco install sharex              --limit-output
+choco install steam-client        --limit-output
+choco install autodesk-fusion360  --limit-output
+choco install dngrep              --limit-output
+choco install streamdeck          --limit-output
+choco install yt-dlp              --limit-output
+choco install winmtr-redux        --limit-output
 
 # dev tools and frameworks
+choco install gitextensions       --limit-output
 choco install vscode              --limit-output; <# pin; evergreen #> choco pin add --name VS Code      --limit-output
 choco install vim                 --limit-output
 choco install winmerge            --limit-output
