@@ -14,7 +14,7 @@ if (!(Verify-Elevated)) {
 Write-Host "Configuring System..." -ForegroundColor "Yellow"
 
 # Set Computer Name
-(Get-WmiObject Win32_ComputerSystem).Rename("CHOZO") | Out-Null
+(Get-WmiObject Win32_ComputerSystem).Rename("JONBONS-PC") | Out-Null
 
 ## Set DisplayName for my account. Use only if you are not using a Microsoft Account
 #$myIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
@@ -25,7 +25,7 @@ Write-Host "Configuring System..." -ForegroundColor "Yellow"
 #Remove-Variable myIdentity
 
 # Enable Developer Mode
-#Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" "AllowDevelopmentWithoutDevLicense" 1
+Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" "AllowDevelopmentWithoutDevLicense" 1
 # Bash on Windows
 #Enable-WindowsOptionalFeature -Online -All -FeatureName "Microsoft-Windows-Subsystem-Linux" -NoRestart -WarningAction SilentlyContinue | Out-Null
 
